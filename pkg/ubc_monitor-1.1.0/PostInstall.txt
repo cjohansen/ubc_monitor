@@ -1,0 +1,2 @@
+
+For more information on ubc_monitor, see http://www.cjohansen.no/projects/ubc_monitor

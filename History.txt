@@ -1,0 +1,16 @@
+1.1.0 - 2008-11-07 Christian Johansen <christian@cjohansen.no>w
+* Packaged project as gem
+* Switched from Subversion to Git
+
+1.0.2 - 2008-04-25 Christian Johansen <christian@cjohansen.no>
+
+* Added Changelog to project :)
+* Added a boolean updated flag to Ubc::Report
+* Changed check on failcounts to make sure failcounts higher than 0, but no higher than previous
+  failcount still gets written back to the log file
+
+1.0.1 - 2008-04-21 Christian Johansen <christian@cjohansen.no>
+
+* Changed shebang to /usr/bin/env ruby
+* Changed cat /proc/user_beancounters command (removed grep part which rendered it useless)
+* Removed -t option for mail which didn't work under Debian

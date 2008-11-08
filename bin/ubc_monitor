@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+#
+#  Created by Christian Johansen on 2008-11-3.
+#  Copyright (c) 2008. All rights reserved.
+
+require File.expand_path(File.dirname(__FILE__) + "/../lib/ubc_monitor")
+require "ubc_monitor/cli"
+
+UbcMonitor::CLI.execute(ARGV)
