@@ -31,7 +31,7 @@ module UbcMonitor
                 "                                     'value is #{options[:email_subject]}'") { |s| options[:email_subject] = s }
       end.parse!
 
-      monitor =Ubc::Monitor.new(options)
+      monitor = UbcMonitor::Monitor.new(options)
       report = monitor.run
 
       if report.updated && !options[:email_recipient].nil?

@@ -19,12 +19,12 @@ as the first run) any fail count except 0 will be reported.
 
   ubc_monitor [options]
 
-Options:
+  Options:
 
--f --file                    Log failcounts to this file, default is ~/.ubc_monitor
--n --no-log                  Don't log fail counts (only print results to STDOUT)
--t --email-recipient [EMAIL] The recipient of report emails. If this is not set, no email is sent
--s --email-subject [SUBJECT]", "Email subject. Default value is 'VPS has increased failcounts'
+  -f --file                    Log failcounts to this file, default is ~/.ubc_monitor
+  -n --no-log                  Don't log fail counts (only print results to STDOUT)
+  -t --email-recipient [EMAIL] The recipient of report emails. If this is not set, no email is sent
+  -s --email-subject [SUBJECT] Email subject. Default value is 'VPS has increased failcounts'
 
 == INSTALL:
 

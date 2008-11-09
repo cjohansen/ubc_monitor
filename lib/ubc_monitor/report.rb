@@ -1,7 +1,7 @@
 # Namespace for the UbcMonitor script
-module Ubc
+module UbcMonitor
 
-  # The Ubc::Report object holds information on the current state of failcounts in the
+  # The UbcMonitor::Report object holds information on the current state of failcounts in the
   # /proc/user_beancounts table
   #
   # The Report is able to generate different views of the data it represents. It can use a
@@ -101,7 +101,7 @@ module Ubc
       return @resource_counts.length
     end
 
-    # Alias of +Ubc::Monitor#length+
+    # Alias of +UbcMonitor::Monitor#length+
     alias size length
 
     # Return a nicely formatted report

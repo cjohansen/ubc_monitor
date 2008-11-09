@@ -1,7 +1,7 @@
 require File.dirname(__FILE__) + '/test_helper.rb'
 
 # Mock cat /proc/user_beancounters
-module Ubc
+module UbcMonitor
   class Monitor
     def proc_user_beancounters
       <<-EOF
@@ -33,12 +33,12 @@ end
 class TestUbcMonitor < Test::Unit::TestCase
 
   def test_init_monitor
-    monitor = Ubc::Monitor.new
+    monitor = UbcMonitor::Monitor.new
     assert_not_nil monitor
   end
 
   def test_monitor_scan
-    monitor = Ubc::Monitor.new
+    monitor = UbcMonitor::Monitor.new
     report = monitor.scan
 
     assert_equal 2, report.length
@@ -56,7 +56,7 @@ class TestUbcMonitor < Test::Unit::TestCase
   end
 
   def test_run
-    monitor = Ubc::Monitor.new
+    monitor = UbcMonitor::Monitor.new
     report = monitor.run
 
     assert_equal 2, report.length
@@ -64,7 +64,7 @@ class TestUbcMonitor < Test::Unit::TestCase
     assert_equal 1, report[:'102'].length
 
     filename = '.ubc_test_file'
-    monitor = Ubc::Monitor.new :file => filename
+    monitor = UbcMonitor::Monitor.new :file => filename
     report = monitor.run
 
     assert_equal 2, report.length
@@ -86,7 +86,7 @@ dgramrcvbuf: 345
 
     # Again, this time the report should be empty, and the file unchanged
     atime = File.new(filename).atime
-    monitor = Ubc::Monitor.new :file => filename
+    monitor = UbcMonitor::Monitor.new :file => filename
     report = monitor.run
 
     assert_equal 0, report.length
@@ -96,7 +96,7 @@ dgramrcvbuf: 345
   end
 
   def test_to_s
-    monitor = Ubc::Monitor.new
+    monitor = UbcMonitor::Monitor.new
     report = monitor.run
 
     content = <<-EOF

@@ -3,13 +3,13 @@ require File.dirname(__FILE__) + '/test_helper.rb'
 class TestUbcReport < Test::Unit::TestCase
 
   def test_init_report
-    report = Ubc::Report.new
+    report = UbcMonitor::Report.new
     assert_not_nil report
     assert report.empty?
   end
 
   def test_append
-    report = Ubc::Report.new
+    report = UbcMonitor::Report.new
     assert report.empty?
 
     assert :'196', report[:'196', :privvmpages] = { :failcnt => 4 }
@@ -17,7 +17,7 @@ class TestUbcReport < Test::Unit::TestCase
   end
 
   def test_getter
-    report = Ubc::Report.new
+    report = UbcMonitor::Report.new
     numbers = { :failcnt => 4 }
     vps = :'196'
     report[vps, :privvmpages] = numbers
@@ -45,7 +45,7 @@ privvmpages: 5
 
     File.open(filename, 'w') { |f| f.puts contents }
 
-    report = Ubc::Report.load filename
+    report = UbcMonitor::Report.load filename
     assert_equal 1, report[:'196'].length, report[:'196'].inspect
     assert_equal 1, report[:'196'][:privvmpages].length
     assert_equal 2, report[:'197'].length

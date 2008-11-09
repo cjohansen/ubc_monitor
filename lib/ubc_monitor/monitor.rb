@@ -2,7 +2,7 @@ require 'net/smtp'
 require 'ostruct'
 
 # Namespace for the UbcMonitor script
-module Ubc
+module UbcMonitor
 
   # The Monitor provides an interface for inspecting /proc/user_beancounters as well
   # as a number of ways to report numbers that exceed given limits
@@ -12,7 +12,7 @@ module Ubc
       @options = ({ :file => nil }).merge(options)
     end
 
-    # Run the monitor. Uses a Ubc::Report object to track runs so as to not
+    # Run the monitor. Uses a UbcMonitor::Report object to track runs so as to not
     # report back errors that have already been reported
     def run
       filename = @options[:file]
@@ -30,7 +30,7 @@ module Ubc
     end
 
     # Generate the /proc/user_beancounters report by running cat on it.
-    # The method takes a Ubc::Report object and returns a fresh report containing
+    # The method takes a UbcMonitor::Report object and returns a fresh report containing
     # only VPS's that have increased failcounts
     def scan(report = Report.new)
       vps = nil
